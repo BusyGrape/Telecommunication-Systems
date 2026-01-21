@@ -7,7 +7,7 @@
 # Telecommunication Systems
 From Switching Networks to IP Routing
 
-## 第一章：The Foundation of Switching (交换基础)
+## [第一章：The Foundation of Switching (交换基础)](/switching.md "")
 - 物理连接：为什么需要交换机？（解决 $N$ 对 $N$ 的连线灾难）。
 - 层级架构：从街道端局（End Office）到国家中心局。
 - 号码解析：交换机如何根据拨号频率（脉冲/双音多频）识别号码并选择出口。
