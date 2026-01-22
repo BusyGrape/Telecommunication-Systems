@@ -65,17 +65,39 @@ PSTN 并不是一个巨大的星星，而是无数个星星嵌套在一起的“
 ### 分组交换 (Packet Switching) 
 
 ## 编码和解码
-graph TD
-    A[Voice: Analog Sound] -->|Step 1: PCM| B(Digital Bits: 64kbps)
-    B -->|Step 2: TSI| C{Memory Switching}
-    C -->|Strategy| D[TDM: Time Division Multiplexing]
-    D -->|Result| E[High-Capacity Trunk: E1/T1]
-    
-    subgraph "The SPC Era (Digital Switching)"
-    B
-    C
-    D
+
+graph LR
+    %% 定义样式
+    classDef physical fill:#f9f,stroke:#333,stroke-width:2px;
+    classDef logic fill:#bbf,stroke:#333,stroke-width:2px;
+    classDef control fill:#f96,stroke:#333,stroke-width:2px;
+
+    subgraph "物理接入层"
+    A[用户语音/模拟信号]:::physical
     end
 
-    F[SS7: Signaling System] -.->|Control Plane| C
-    style F fill:#f96,stroke:#333,stroke-width:2px
+    subgraph "程控交换核心 (SPC)"
+    B{PCM 编码}:::logic
+    C[TSI 时隙交换]:::logic
+    D[TDM 时分复用]:::logic
+    end
+
+    subgraph "控制面"
+    S[SS7 信令系统]:::control
+    end
+
+    subgraph "传输干线"
+    E[E1/T1 数字中继]:::physical
+    end
+
+    %% 逻辑连接
+    A -->|采样/量化| B
+    B -->|产生 64kbps 数据流| C
+    C -->|时隙排列| D
+    D -->|多路合成| E
+    
+    %% 信令控制
+    S -.->|指令下达| C
+    S -.->|状态监控| D
+
+    linkStyle 4,5 stroke:#f60,stroke-width:2px,stroke-dasharray: 5;
