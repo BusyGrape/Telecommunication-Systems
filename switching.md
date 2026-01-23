@@ -64,7 +64,7 @@ Key Insight: The history of switching is a journey of "Dematerialization" — fr
 ### 空分交换 Space Division Switching
 [Video:Panel Telephone Switch](https://www.youtube.com/watch?v=Gsx2ZsYggGw)\
 [A Crossbar Telephone Switch Explained](https://hackaday.com/2024/02/04/a-crossbar-telephone-switch-explained/)\
-[Step-By-Step Telephone Swith(https://youtu.be/VN_K2PgMYq8)
+[Step-By-Step Telephone Swith](https://youtu.be/VN_K2PgMYq8)
 
 - 逻辑：你要从 A 到 B，我给你修一段专用的桥面。只要你在走，别人就绝对不能踩在这块桥面上。
 - 物理形态：早期的纵横制交换机（Crossbar Switch）。你会看到机房里密密麻麻的金属杆和触点，拨号时发出“哒哒哒”的机械撞击声。
@@ -92,9 +92,9 @@ Key Insight: The history of switching is a journey of "Dematerialization" — fr
   - 以上叫做**时分复用** TDM（更严谨地说是同步TDM，区别于异步TDM等）
 - 如何把声音正确的送给接电话的人：
   - 32个人的声音数据，每次采集都按同样的顺序依次排列传输，1-32号位置
-  - 给这32个打电话的人和他们的声音数据建立好关系表：|打电话号|传输位置|
-  - 接电话的人和打电话的人也有一个对应关系表：|打电话号|接电话号|
-  - 接电话>>打电话>>传输位置，建立取出数据的关系表：|接电话号|传输位置|
+  - 给这32个打电话的人和他们的声音数据建立好关系表：| 打电话号 | 传输位置 |
+  - 接电话的人和打电话的人也有一个对应关系表：| 打电话号 | 接电话号 |
+  - 接电话>>打电话>>传输位置，建立取出数据的关系表：| 接电话号 | 传输位置 |
   - 接电话的人每次都从线路的这个位置取出数据
   - 完成以上工作的部件叫**时隙交换器** TSI
   - 延迟：一个时分交换器带来的延迟，理论上最坏是1个周期125微秒0.1毫秒，平均是0.5个周期62.5微秒。
@@ -110,14 +110,19 @@ Key Insight: The history of switching is a journey of "Dematerialization" — fr
   - [现代交换原理CH2 TST网络](https://blog.csdn.net/grin99/article/details/104948967)
   - When?
 
-  | 交换机类型 | TST 结构 | 用户容量 |
-  |------------|----------|----------|
-  | 小型本地交换机 | 单级 TST | 几千用户 |
-  | 中型城市交换机 | 单级/双级 TST | 10,000–50,000 用户 |
-  | 区域/长途交换机 | 多级 TST 串联 | 数十万–百万用户 |
-  >注：现代网络大部分已被 分组交换 / VoIP 替代，但 PSTN 时代，这就是规模极限设计方法。
+    | 交换机类型 | TST 结构 | 用户容量 |
+    |------------|----------|----------|
+    | 小型本地交换机 | 单级 TST | 几千用户 |
+    | 中型城市交换机 | 单级/双级 TST | 10,000–50,000 用户 |
+    | 区域/长途交换机 | 多级 TST 串联 | 数十万–百万用户 |
+    >注：现代网络大部分已被 分组交换 / VoIP 替代，但 PSTN 时代，这就是规模极限设计方法。
 
 ### 分组交换 Packet Switching
+留在后面的章节展开
 
-## 编码和解码
-
+## 信号、传输、噪声与失真
+这部分太偏数学，以后再详细学。我可能比较感兴趣的问题：
+- 声音是如何变成电信号的
+- 信号如何远距离传输
+- 把信号还原成声音会遇到什么问题
+- 如何处理噪声与失真
