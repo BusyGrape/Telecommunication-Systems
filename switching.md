@@ -102,7 +102,7 @@ Key Insight: The history of switching is a journey of "Dematerialization" — fr
 - TST结构
   - T时分，S空分，T时分
   - Why?
-    - 降低交叉矩阵规模：两级时分+空分矩阵只需 $N/2 \times N/2$ 规模
+    - 降低交叉矩阵规模：两级时分+空分矩阵只需 $\frac{N}{2} \times \frac{N}{2}$ 规模
     - 延迟可控：2级时分交换延迟仅为*2，空分延迟几乎为零
     - 可扩展：多个 TST 级联即可服务数万路用户
     - 全空分矩阵规模会爆炸，成本极高
