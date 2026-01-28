@@ -11,7 +11,7 @@ From Switching Networks to IP Routing
 - 物理连接：为什么需要交换机？（解决 $N$ 对 $N$ 的连线灾难）。
 - 层级架构：从街道端局（End Office）到国家中心局。
 - 号码解析：交换机如何根据拨号频率（脉冲/双音多频）识别号码并选择出口。
-## 第二章：Control Logic & Signaling (控制逻辑与信令)
+## [第二章：Control Logic & Signaling (控制逻辑与信令)](/signaling.md)
 - SS7 (7号信令)：这是通信工程最迷人的部分。它是网络背后的专用控制网。
 - 管理机制：如何处理占线、如何计费、如何跨国追踪一个呼叫。 
 ## 第三章：Evolution to IP (向 IP 的演化)

@@ -28,31 +28,41 @@ A digit-by-digit routing process. It prunes the network tree to find the destina
 
 ## Switch 交换机如何工作
 ### 发展史
-- 人工交换时代 Manual Switching\
-  一面巨大的塞孔板。当你拿起电话，交换局的接线员（通常是女性）面前的灯会亮起。
-  她问：“找哪位？”然后用一根带插头的绳子，一头插在你的孔里，一头插在被叫方的孔里。
-  这是最原始的空分交换。接线员的大脑就是最初的“信令处理中心”和“路由表”。
+📽️️[西雅图的Connections Museum介绍](https://youtu.be/D_m4K5Q5yRU?si=GE8wJw6AUbprgkzN)
+▶️[博物馆自己的频道](https://www.youtube.com/c/ConnectionsMuseum)\
+可以参观（也许体验）最早的人工接线时代交换机，一直到也许最现代的一台？
+
+📃[电话交换百年史_交换机](links/电话交换百年史_交换机.mhtml)
+
+#### 人工交换时代 Manual Switching
+📽️️[AT&T的Switchboards发展史视频](https://www.youtube.com/watch?v=xJ1fKFqt7qU)
+
+一面巨大的塞孔板。当你拿起电话，交换局的接线员（通常是女性）面前的灯会亮起。
+她问：“找哪位？”然后用一根带插头的绳子，一头插在你的孔里，一头插在被叫方的孔里。
+这是最原始的空分交换。接线员的大脑就是最初的“信令处理中心”和“路由表”。
   
-- 步进级交换时代 Step-by-Step / Strowger\
-  由拨号脉冲直接驱动机械旋转。
-  你拨一个“3”，电流断开3次，交换机里的电磁铁就带动金属臂向上跳3级。
-  这是寻址逻辑与物理动作的直接耦合。你拨号的速度就是机器动的速度。
+#### 步进级交换时代 Step-by-Step / Strowger
+📽️[Step-By-Step Telephone Swith](https://youtu.be/VN_K2PgMYq8)
 
-- 纵横制交换时代 Crossbar Switching\
-  它不再是拨一个号动一下，而是先由“记发器（Sender）”把号码全部听完、记下。
-  在计算出路径，指挥交叉矩阵上的横杆和纵杆“咔哒”闭合。 
-  它实现了控制（Control）与交换（Switching）的初步分离。
+由拨号脉冲直接驱动机械旋转。
+你拨一个“3”，电流断开3次，交换机里的电磁铁就带动金属臂向上跳3级。
+这是寻址逻辑与物理动作的直接耦合。你拨号的速度就是机器动的速度。
 
-- 程控交换时代 Stored Program Control, SPC\
-  用计算机软件控制交换动作，进入“时分交换”。 
-  交换机变成一台运行程序的计算机。声音变成了内存里的比特流，交换动作变成了 CPU 操作内存地址。
-  容量从几千线瞬间飙升到几十万线。因为有软件，才有了缩位拨号、呼叫转移等功能。
+#### 纵横制交换时代 Crossbar Switching
+它不再是拨一个号动一下，而是先由“记发器（Sender）”把号码全部听完、记下。
+在计算出路径，指挥交叉矩阵上的横杆和纵杆“咔哒”闭合。 
+它实现了控制（Control）与交换（Switching）的初步分离。
 
-- 软交换与 IMS Softswitch / VoIP\
-  现状：交换机不再是一个大柜子，而是运行在通用服务器上的软件。
-  所有的语音都变成了 IP 包（第三章的内容）。
+#### 程控交换时代 Stored Program Control, SPC
+用计算机软件控制交换动作，进入“时分交换”。 
+交换机变成一台运行程序的计算机。声音变成了内存里的比特流，交换动作变成了 CPU 操作内存地址。
+容量从几千线瞬间飙升到几十万线。因为有软件，才有了缩位拨号、呼叫转移等功能。
 
-Evolution Summary:
+#### 软交换与 IMS Softswitch / VoIP\
+现状：交换机不再是一个大柜子，而是运行在通用服务器上的软件。
+所有的语音都变成了 IP 包（第三章的内容）。
+
+#### Evolution Summary:
 - Manual: Human intelligence + physical cords. 
 - Step-by-Step: Pulse drive + mechanical selectors (Strowger). 
 - Crossbar: Common control + coordinate matrix (Space Division). 
@@ -62,10 +72,9 @@ Evolution Summary:
 Key Insight: The history of switching is a journey of "Dematerialization" — from heavy metal bars to invisible software bits.
 
 ### 空分交换 Space Division Switching
-[Video:Panel Telephone Switch](https://www.youtube.com/watch?v=Gsx2ZsYggGw)\
-[A Crossbar Telephone Switch Explained](https://hackaday.com/2024/02/04/a-crossbar-telephone-switch-explained/)\
-[Step-By-Step Telephone Swith](https://youtu.be/VN_K2PgMYq8)
-
+📽️[Video:Panel Telephone Switch](https://www.youtube.com/watch?v=Gsx2ZsYggGw)\
+📽️[Step-By-Step Telephone Swith](https://youtu.be/VN_K2PgMYq8)\
+📽️[A Crossbar Telephone Switch Explained](https://hackaday.com/2024/02/04/a-crossbar-telephone-switch-explained/)\
 - 逻辑：你要从 A 到 B，我给你修一段专用的桥面。只要你在走，别人就绝对不能踩在这块桥面上。
 - 物理形态：早期的纵横制交换机（Crossbar Switch）。你会看到机房里密密麻麻的金属杆和触点，拨号时发出“哒哒哒”的机械撞击声。
 - 工作原理：在每一根横线和纵线的交叉点上，都有一个电子开关。 如果寻址逻辑判断“入口 A”要连“出口 B”，交换机就会合上坐标为 $(A, B)$ 的那个点。
