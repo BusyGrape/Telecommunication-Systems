@@ -5,7 +5,8 @@
 - **Characteristic**: Dedicated path (Circuit-switched). High reliability, low resource efficiency.
 
 ## PSTN (Public Switched Telephone Network)
-于是我们发明了一种网络结构，它无需给每个用户之间建立独立通道。而是通过信号管理控制一个庞大的网络，让有限的“路”在节点之间“移动”，只给需要通话的人临时搭一条通道。
+于是我们发明了一种结构，它无需给每个用户之间建立独立通道。而是通过信号管理控制一个庞大的网络，让有限的“路”在节点之间“移动”，只给需要通话的人临时搭一条通道。
+
 It provides the fundamental addressing and signaling framework that modern Internet protocols eventually inherited.
 - **Definition**: The traditional global infrastructure for wired voice services.
 - **Mechanism**: Circuit Switching (dedicated end-to-end path).
@@ -49,7 +50,7 @@ A digit-by-digit routing process. It prunes the network tree to find the destina
 ## Switching System / Exchange
 这个网络里的节点——交换机/中继站，是怎么工作的
 
-### 发展史 History of Switching System
+### Evolution of Switching Systems
 📽️️[西雅图的Connections Museum介绍](https://youtu.be/D_m4K5Q5yRU?si=GE8wJw6AUbprgkzN)
 ▶️[博物馆自己的频道](https://www.youtube.com/c/ConnectionsMuseum)\
 可以参观（也许体验）最早的人工接线时代交换机，一直到也许最现代的一台？
