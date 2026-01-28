@@ -5,18 +5,38 @@
 - **Characteristic**: Dedicated path (Circuit-switched). High reliability, low resource efficiency.
 
 ## PSTN (Public Switched Telephone Network)
+于是我们发明了一种网络结构，它无需给每个用户之间建立独立通道。而是通过信号管理控制一个庞大的网络，让有限的“路”在节点之间“移动”，只给需要通话的人临时搭一条通道。
 It provides the fundamental addressing and signaling framework that modern Internet protocols eventually inherited.
 - **Definition**: The traditional global infrastructure for wired voice services.
 - **Mechanism**: Circuit Switching (dedicated end-to-end path).
 
-## Star Topology 星型网络
-### Star Topology
-PSTN 并不是一个巨大的星星，而是无数个星星嵌套在一起的“树状层级”
+## Topology 通信网络结构
+网络拓扑结构是计算机网络结点和通信链路所组成的几何形状。\
+有总线、环状、星状、树状、网状等。其中总线、环状、星状是3种基本的拓扑结构。
+
+### 总线结构
+网络中结点均通过相应的接口直接连接到称为总线的通信线路上，各结点共享一条数据通道。
+- 特点：结构简单灵活、易于实现扩展、共享能力强，网络响应速度快。
+- 缺点：传输能力低，安全性较差，总线的故障会导致网络瘫痪。它是局域网常采用的拓扑结构。
+
+### 环状结构
+网络中各结点通过接口连在一条首尾相连的闭合环状通信线路中，信息在环路中沿着一个方向在各个结点间传输，通信线路共享。\
+分为单环结构(e.g.Token Ring)双环结构(e.g.FDDI)。
+- 特点：结构简单，易实现。
+- 缺点：可扩充性差，可靠性低。一个结点或一处链路故障，将会造成全网瘫痪。
+
+### 星状结构
+以一台网络通信设备为中心结点，其他外围结点通过一条单独的链路与中心结点相连，信息的传输是通过中心结点的存储转发技术实现。在局域网中最常用到。
+- 特点：结构简单，易实现、易扩充且便于管理和维护，某外围结点链路故障不影响其他结点正常工作。
+- 缺点：对中心结点的要求较高，中心结点负担重，易成为信息传输的瓶颈和单点故障点。
+
+### PSTN结构
+并不是一个巨大的星星，而是无数个星星嵌套在一起的“树状层级”
 - **Mechanism**: All nodes connect to a central switch (PSTN End Office).
 - **Efficiency**: Dramatically reduces the number of physical cables from $O(n^2)$ to $O(n)$.
 - **Scalability**: Allows for hierarchical expansion (stars within stars). This is how PSTN manages millions of users globally.
 
-### Addressing 寻址
+## Addressing 寻址
 A digit-by-digit routing process. It prunes the network tree to find the destination port. \
 在 PSTN 中，寻址不是一次性完成的，而是逐级解析。以电话号码 021-6xxx-xxxx 为例：
 - Step 1（本地端局）：它看到 0，意识到这不是本地呼叫，于是把信号送到长途交换机。 
@@ -26,8 +46,10 @@ A digit-by-digit routing process. It prunes the network tree to find the destina
 
 “寻址”其实就是“查表”。在 PSTN 里，这张表叫路由表；在互联网里，它依然叫路由表
 
-## Switch 交换机如何工作
-### 发展史
+## Switching System / Exchange
+这个网络里的节点——交换机/中继站，是怎么工作的
+
+### 发展史 History of Switching System
 📽️️[西雅图的Connections Museum介绍](https://youtu.be/D_m4K5Q5yRU?si=GE8wJw6AUbprgkzN)
 ▶️[博物馆自己的频道](https://www.youtube.com/c/ConnectionsMuseum)\
 可以参观（也许体验）最早的人工接线时代交换机，一直到也许最现代的一台？
@@ -41,14 +63,14 @@ A digit-by-digit routing process. It prunes the network tree to find the destina
 她问：“找哪位？”然后用一根带插头的绳子，一头插在你的孔里，一头插在被叫方的孔里。
 这是最原始的空分交换。接线员的大脑就是最初的“信令处理中心”和“路由表”。
   
-#### 步进级交换时代 Step-by-Step / Strowger
+#### 电子机械-步进级交换时代 Step-by-Step / Strowger
 📽️[Step-By-Step Telephone Swith](https://youtu.be/VN_K2PgMYq8)
 
 由拨号脉冲直接驱动机械旋转。
 你拨一个“3”，电流断开3次，交换机里的电磁铁就带动金属臂向上跳3级。
 这是寻址逻辑与物理动作的直接耦合。你拨号的速度就是机器动的速度。
 
-#### 纵横制交换时代 Crossbar Switching
+#### 电子机械-纵横制交换时代 Crossbar Switching
 它不再是拨一个号动一下，而是先由“记发器（Sender）”把号码全部听完、记下。
 在计算出路径，指挥交叉矩阵上的横杆和纵杆“咔哒”闭合。 
 它实现了控制（Control）与交换（Switching）的初步分离。
@@ -71,16 +93,17 @@ A digit-by-digit routing process. It prunes the network tree to find the destina
 
 Key Insight: The history of switching is a journey of "Dematerialization" — from heavy metal bars to invisible software bits.
 
-### 空分交换 Space Division Switching
+### Switch Logic 交换的原理
+#### Space Division Switching 空分交换
 📽️[Video:Panel Telephone Switch](https://www.youtube.com/watch?v=Gsx2ZsYggGw)\
 📽️[Step-By-Step Telephone Swith](https://youtu.be/VN_K2PgMYq8)\
-📽️[A Crossbar Telephone Switch Explained](https://hackaday.com/2024/02/04/a-crossbar-telephone-switch-explained/)\
+📽️[A Crossbar Telephone Switch Explained](https://hackaday.com/2024/02/04/a-crossbar-telephone-switch-explained/)
 - 逻辑：你要从 A 到 B，我给你修一段专用的桥面。只要你在走，别人就绝对不能踩在这块桥面上。
 - 物理形态：早期的纵横制交换机（Crossbar Switch）。你会看到机房里密密麻麻的金属杆和触点，拨号时发出“哒哒哒”的机械撞击声。
 - 工作原理：在每一根横线和纵线的交叉点上，都有一个电子开关。 如果寻址逻辑判断“入口 A”要连“出口 B”，交换机就会合上坐标为 $(A, B)$ 的那个点。
 - 笔记补充：只要这个交叉点的开关合上，A 和 B 之间就形成了一条独占的、透明的物理通路。它的限制在于体积。用户越多，交叉点呈 $N^2$ 增长，机房根本放不下。
   
-### 时分交换 Time Division Switching
+#### Time Division Switching 时分交换
 - 前提：声音/信号的数字化 
 - 这里需要知道声音是波，以及对声波采样编码还原的概念
   - PCM 脉冲编码调制 Pulse Code Modulation
@@ -108,26 +131,29 @@ Key Insight: The history of switching is a journey of "Dematerialization" — fr
   - 完成以上工作的部件叫**时隙交换器** TSI
   - 延迟：一个时分交换器带来的延迟，理论上最坏是1个周期125微秒0.1毫秒，平均是0.5个周期62.5微秒。
   - 参考：人耳对小于150毫秒的声音延迟几乎无感。对大于400毫秒的感觉无法进行对话。
-- TST结构
-  - T时分，S空分，T时分
-  - Why?
-    - 降低交叉矩阵规模：两级时分+空分矩阵只需 $(N/2) × (N/2)$ 规模
-    - 延迟可控：2级时分交换延迟仅为*2，空分延迟几乎为零
-    - 可扩展：多个 TST 级联即可服务数万路用户
-    - 全空分矩阵规模会爆炸，成本极高
-    - 全时分一条线可能跨很多输入输出，延迟和复杂度上升
-  - [现代交换原理CH2 TST网络](https://blog.csdn.net/grin99/article/details/104948967)
-  - When?
 
-    | 交换机类型 | TST 结构 | 用户容量 |
-    |------------|----------|----------|
-    | 小型本地交换机 | 单级 TST | 几千用户 |
-    | 中型城市交换机 | 单级/双级 TST | 10,000–50,000 用户 |
-    | 区域/长途交换机 | 多级 TST 串联 | 数十万–百万用户 |
+#### TST结构
+手工交换和电子机械交换时代，交换机可能全是空分结构的。但是程控交换时代的交换机，则是一种时分与空分组合起来的结构。
+
+- T时分，S空分，T时分
+- Why?
+  - 降低交叉矩阵规模：两级时分+空分矩阵只需 $(N/2) × (N/2)$ 规模
+  - 延迟可控：2级时分交换延迟仅为*2，空分延迟几乎为零
+  - 可扩展：多个 TST 级联即可服务数万路用户
+  - 全空分矩阵规模会爆炸，成本极高
+  - 全时分一条线可能跨很多输入输出，延迟和复杂度过高，无法实现
+- [现代交换原理CH2 TST网络](https://blog.csdn.net/grin99/article/details/104948967)
+- When?
+
+  | 交换机类型 | TST 结构 | 用户容量 |
+  |------------|----------|----------|
+  | 小型本地交换机 | 单级 TST | 几千用户 |
+  | 中型城市交换机 | 单级/双级 TST | 10,000–50,000 用户 |
+  | 区域/长途交换机 | 多级 TST 串联 | 数十万–百万用户 |
     >注：现代网络大部分已被 分组交换 / VoIP 替代，但 PSTN 时代，这就是规模极限设计方法。
 
-### 分组交换 Packet Switching
-留在后面的章节展开
+#### Packet Switching 分组交换
+和电脑网络一起展开
 
 ## 信号、传输、噪声与失真
 这部分太偏数学，以后再详细学。我可能比较感兴趣的问题：
