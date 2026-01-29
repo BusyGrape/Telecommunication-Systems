@@ -42,10 +42,11 @@ From Switching Networks to IP Routing
 
 ## 系统教学网站
 - 👉[TSSN电信交换系统教程网站](https://www.w3ccoo.com/telecommunication_switching_systems_and_networks/index.html)
-- 👆[TSSN原始英文教程，能看英文看英文，比中文好很多](https://www.tutorialspoint.com/telecommunication_switching_systems_and_networks/index.htm)
+- 👆[TSSN原始英文教程](https://www.tutorialspoint.com/telecommunication_switching_systems_and_networks/index.htm "能看英文看英文，比中文好很多")
+👈[【离线网页版】](/TSSN_Quick_Guide.mhtml)
 
 ## 通俗易懂的文章
-- 📃[电话交换百年史_交换机](links/电话交换百年史_交换机.mhtml)
+- 📃[电话交换百年史——交换机](links/电话交换百年史_交换机.mhtml)
 - 📃[现代交换原理CH2 TST网络](https://blog.csdn.net/grin99/article/details/104948967)
 
 # AI推荐的教程
