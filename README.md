@@ -7,27 +7,25 @@
 # Telecommunication Systems
 From Switching Networks to IP Routing
 
-## [第一章：The Foundation of Switching (交换基础)](/switching.md)
+## [Ch1 The Foundation of Switching (交换基础)](/switching.md)
 - 为什么需要交换机？（解决 $N$ 对 $N$ 的连线灾难）。
 - 交换机组成的网络：从街道端局（End Office）到国家中心局。
-- 如何帮打电话的人连上接电话的人
+- 只在你需要打电话给某个人时，我才帮你搭一条临时通路
 
-## [第二章：Control Logic & Signaling (控制与信令)](/signaling.md)
+## [Ch2 Control Logic & Signaling (控制与信令)](/signaling.md)
 - 什么是控制系统：如何处理占线、如何计费、如何跨国追踪一个呼叫。 
-- 信号是怎样指挥的：交换机如何根据拨号频率（脉冲/双音多频）识别号码并选择出口。
+- 一个只听**信号**指挥的网络：交换机如何根据拨号频率（脉冲/双音多频）识别号码并选择出口。
 - SS7 (7号信令)：这是通信工程最迷人的部分。它是网络背后的专用控制网。
 
-## 第三章：Evolution to IP (向 IP 的演化)
+## Ch3 Evolution to IP (向 IP 的演化)
 - 分组交换逻辑：为什么要把连续的通话切成“包”？
 - 寻址转换：电话号码（E.164标准）与 IP 地址的逻辑异同。
 - VoIP 实操：现在的手机语音是如何跑在互联网协议之上的。
 
 ## Signal Processing 信号处理
-- 解决的是： “怎么把信息变成能跑的东西？”
+- “怎么把信息变成能跑的东西？”（解决有线电话里声音如何变成电流。）
 - 干货点： 模拟信号 vs 数字信号、电缆/光纤的频率、衰减、调制（Modulation）。
-- 解决有线电话里声音如何变成电流。
-
-这部分暂时不多研究。
+- 有一门课好像叫：模拟信号与数字电路。这部分过于数学，暂时不多研究。
 
 
 # 随着学习，我发现的宝藏知识库们
